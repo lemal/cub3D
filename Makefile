@@ -7,7 +7,7 @@ CFLAGS	=	-Wall -Wextra -Werror
 DFLAGS	=	-MMD -MP
 
 SRCS	=	cub3d.c  
-# DEPS	=	${patsubst %.c,%.d, ${SRCS}}
+DEPS	=	${patsubst %.c,%.d, ${SRCS}}
 
 # B_SRCS	=	
 # B_DEPS	=	${patsubst %.c,%.d, ${B_SRCS}}
