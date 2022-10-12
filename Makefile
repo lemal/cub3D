@@ -6,7 +6,7 @@ cc	=	cc
 CFLAGS	=	-Wall -Wextra -Werror
 DFLAGS	=	-MMD -MP
 
-SRCS	=	cub3d.c renderer.c renderer_2.c
+SRCS	=	cub3d.c renderer_1.c renderer_2.c renderer_3.c
 DEPS	=	${patsubst %.c,%.d, ${SRCS}}
 
 # B_SRCS	=	
@@ -35,7 +35,7 @@ clean:
 %.o:	%.c
 	${CC} ${CFLAGS} -c ${DFLAGS} ${INCS} $< -o $@
 
-$(NAME):	$(OBJS)	$(LIBFT)
+$(NAME):	$(OBJS)	$(LIBFT) includes/cub3d.h
 	$(CC) $(CFLAGS)  $(OBJS) $(LFLAGS) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $@
 
 # bonus:  $(B_OBJS) $(LIBFT)

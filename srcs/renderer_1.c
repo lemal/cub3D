@@ -6,7 +6,7 @@
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 14:52:03 by tapulask          #+#    #+#             */
-/*   Updated: 2022/10/12 11:22:51 by tapulask         ###   ########.fr       */
+/*   Updated: 2022/10/12 12:52:11 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int	ft_render(t_type *var)
 {
 	ft_draw_back(var);
+	ft_player(var);
 	mlx_put_image_to_window(var->mlx_obj,
 		var->mlx_window, var->mlx_image, 0, 0);
 	return (0);

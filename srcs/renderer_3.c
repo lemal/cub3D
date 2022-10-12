@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.c                                            :+:      :+:    :+:   */
+/*   renderer_3.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/06 13:26:51 by tapulask          #+#    #+#             */
-/*   Updated: 2022/10/12 12:05:50 by tapulask         ###   ########.fr       */
+/*   Created: 2022/10/12 11:41:38 by tapulask          #+#    #+#             */
+/*   Updated: 2022/10/12 13:02:44 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	ft_map(t_type *var)
+void	ft_player(t_type *var)
 {
-	var->map = "111111\n100101\n101001\n1100N1\n111111";
-}
-
-int	main(void)
-{
-	t_type	var;
-	
-	ft_map(&var);
-	if (!ft_mlx_setup(&var))
-		return (1);
-	ft_game(&var);
-	return (0);
+	var->color = 0xFF00F0;
+	var->len_rect_x = 50;
+	ft_draw_rect(var, 450, 300, 300);
 }
