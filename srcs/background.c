@@ -1,25 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.c                                            :+:      :+:    :+:   */
+/*   background.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/06 13:26:51 by tapulask          #+#    #+#             */
-/*   Updated: 2022/10/12 10:46:39 by tapulask         ###   ########.fr       */
+/*   Created: 2022/10/11 14:43:18 by tapulask          #+#    #+#             */
+/*   Updated: 2022/10/11 15:23:44 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	main(void)
-{
-	t_type	var;
-	
-	//ft_map
-	printf("%s", "hello");
-	if (!ft_mlx_setup(&var))
-		return (1);
-	ft_game(&var);
-	return (0);
-}

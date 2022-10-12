@@ -6,7 +6,7 @@ cc	=	cc
 CFLAGS	=	-Wall -Wextra -Werror
 DFLAGS	=	-MMD -MP
 
-SRCS	=	cub3d.c  
+SRCS	=	cub3d.c renderer.c
 DEPS	=	${patsubst %.c,%.d, ${SRCS}}
 
 # B_SRCS	=	
@@ -15,7 +15,7 @@ DEPS	=	${patsubst %.c,%.d, ${SRCS}}
 OBJS	=	$(addprefix srcs/, $(SRCS:.c=.o))
 # B_OBJS	=	$(addprefix srcs/, $(B_SRCS:.c=.o))
 
-INCS	=	-I includes -I libft -I mlx_linux
+INCS	=	-I includes -I libft -Imlx_linux -O3
 
 LIBFT	=	libft/libft.a
 LFT_HDR	=	libft/libft.h
@@ -33,10 +33,10 @@ clean:
 	${LMAKE} clean 
 
 %.o:	%.c
-	${CC} ${CFLAGS} ${DFLAGS} -c $< ${INCS} -o $@
+	${CC} ${CFLAGS} -c ${DFLAGS} ${INCS} $< -o $@
 
 $(NAME):	$(OBJS)	$(LIBFT)
-	$(CC) $(CFLAGS)  $(OBJS) $(LFLAGS) -o $@
+	$(CC) $(CFLAGS)  $(OBJS) $(LFLAGS) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $@
 
 # bonus:  $(B_OBJS) $(LIBFT)
 #                 @make all
