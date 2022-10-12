@@ -6,7 +6,7 @@ cc	=	cc
 CFLAGS	=	-Wall -Wextra -Werror
 DFLAGS	=	-MMD -MP
 
-SRCS	=	cub3d.c renderer.c
+SRCS	=	cub3d.c renderer.c renderer_2.c
 DEPS	=	${patsubst %.c,%.d, ${SRCS}}
 
 # B_SRCS	=	

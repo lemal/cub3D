@@ -6,7 +6,7 @@
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 13:26:54 by tapulask          #+#    #+#             */
-/*   Updated: 2022/10/12 10:30:08 by tapulask         ###   ########.fr       */
+/*   Updated: 2022/10/12 11:24:00 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@
 # include <string.h>
 # include <X11/X.h>
 # include <X11/keysym.h>
+# define FLOOR 0xFFFFFF
+# define CEILING 0x000000
+# define WIDTH 900
+# define HEIGHT 600
 typedef struct s_struct
 {
 	void	*mlx_obj;
@@ -31,9 +35,11 @@ typedef struct s_struct
 	int		bpp;
 	int		line_size;
 	int		endian;
-	int		floor;
-	int		ceiling;
+	int		color;//change before giving into renderer.
+	int		addr_x;
+	int		addr_y;
 } t_type;
 char	*ft_mlx_setup(t_type *var);
 void	ft_game(t_type	*var);
+void	ft_draw_back(t_type *var);
 #endif
