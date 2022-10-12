@@ -56,3 +56,5 @@ ${LIBFT}:	${LIB_SRCS} ${LFT_HDR}
 fclean: clean
 	${RM} ${NAME} ${B_NAME}
 	${LMAKE} fclean
+
+re: clean all

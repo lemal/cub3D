@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   renderer.c                                         :+:      :+:    :+:   */
+/*   renderer_1.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 14:52:03 by tapulask          #+#    #+#             */
-/*   Updated: 2022/10/12 12:52:11 by tapulask         ###   ########.fr       */
+/*   Updated: 2022/10/12 17:16:00 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 int	ft_render(t_type *var)
 {
+	
 	ft_draw_back(var);
+	ft_draw_minimap(var);
 	ft_player(var);
 	mlx_put_image_to_window(var->mlx_obj,
 		var->mlx_window, var->mlx_image, 0, 0);
@@ -24,6 +26,8 @@ int	ft_render(t_type *var)
 char	*ft_mlx_setup(t_type *var)
 {
 	var->mlx_obj = mlx_init();
+	var->p_x = 0;//this places the player somewhere in the map.
+	var->p_y = 0;
 	if (!var->mlx_obj)
 	{
 		write(1, "Error\nMLX error\n", 17);
@@ -55,10 +59,11 @@ int	ft_end(t_type *vars)
 
 int	ft_input(int keysym, t_type *vars)
 {
-	// if (keysym == XK_w || keysym == XK_a || keysym == XK_d || keysym == XK_s)
-	// {
-		//if (ft_mv_control(keysym, vars))
-	// }
+	if (keysym == XK_w || keysym == XK_a || keysym == XK_d || keysym == XK_s)
+	{
+		ft_mv_control(keysym, vars);
+		return (0);
+	}
 	if (keysym == XK_Escape)
 		ft_end(vars);
 	return (0);
