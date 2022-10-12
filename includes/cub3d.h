@@ -6,7 +6,7 @@
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 13:26:54 by tapulask          #+#    #+#             */
-/*   Updated: 2022/10/12 17:01:22 by tapulask         ###   ########.fr       */
+/*   Updated: 2022/10/12 17:52:37 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,14 @@
 # include <string.h>
 # include <X11/X.h>
 # include <X11/keysym.h>
+# include <math.h>
 # define GREEN 0x00FF00
 # define BLUE 0x0000FF
 # define BLACK 0x000000
 # define PLAYER 0xFF00F0
 # define WIDTH 900
 # define HEIGHT 600
+# define PI 3.14159236535
 typedef struct s_struct
 {
 	char	*map;
@@ -44,6 +46,9 @@ typedef struct s_struct
 	int		len_rect_x;
 	int		p_x;
 	int		p_y;
+	float	p_lookx;
+	float	p_looky;
+	float	p_look_angle;
 } t_type;
 char	*ft_mlx_setup(t_type *var);
 void	ft_game(t_type	*var);

@@ -6,7 +6,7 @@
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 11:41:38 by tapulask          #+#    #+#             */
-/*   Updated: 2022/10/12 17:27:13 by tapulask         ###   ########.fr       */
+/*   Updated: 2022/10/12 18:11:24 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,3 +72,8 @@ void	ft_player(t_type *var)
 	var->len_rect_x = 10;
 	ft_draw_rect(var, var->p_x + i, var->p_y + j, 100);
 }
+
+// void	ft_direction(t_type *var)
+// {
+	
+// }

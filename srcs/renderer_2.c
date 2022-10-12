@@ -6,7 +6,7 @@
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 14:43:18 by tapulask          #+#    #+#             */
-/*   Updated: 2022/10/12 16:56:41 by tapulask         ###   ########.fr       */
+/*   Updated: 2022/10/12 18:11:16 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,10 @@ void	ft_draw_back(t_type *var)
 
 void	ft_mv_control(int keysym, t_type *var)
 {
+	// if (var->p_lookx < 0)
+	// 	var->p_lookx = 2 * PI;
+	// if (var->p_looky > 2 * PI)
+	// 	var->p_looky = 0;
 	if (keysym == XK_w)
 		var->p_y -= 5;
 	else if (keysym == XK_a)
@@ -66,4 +70,8 @@ void	ft_mv_control(int keysym, t_type *var)
 		var->p_x += 5;
 	else if (keysym == XK_s)
 		var->p_y += 5;
+	// else if (keysym == XK_Left)
+	// 	var->p_lookx -= 0.1;
+	// else if (keysym == XK_Right)
+	// 	var->p_looky += 0.1;
 }
