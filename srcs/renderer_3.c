@@ -6,7 +6,7 @@
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 11:41:38 by tapulask          #+#    #+#             */
-/*   Updated: 2022/10/12 18:11:24 by tapulask         ###   ########.fr       */
+/*   Updated: 2022/10/13 12:19:14 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,21 @@ void	ft_draw_minimap(t_type *var)
 	}
 }
 
+void	ft_draw_dir(t_type *var, int x, int y)
+{
+	int		addr_x;
+	int		addr_y;
+
+	addr_x = var->addr_x;
+	addr_y = var->addr_y;
+	var->color = RED;
+	var->addr_x = x + 5 + var->p_dx;
+	var->addr_y = y + 5 + var->p_dy;
+	ft_fill_pixel(var);
+	var->addr_y = addr_y;
+	var->addr_x = addr_x;
+}
+
 void	ft_player(t_type *var)
 {
 	int	i;
@@ -71,9 +86,6 @@ void	ft_player(t_type *var)
 	var->color = PLAYER;
 	var->len_rect_x = 10;
 	ft_draw_rect(var, var->p_x + i, var->p_y + j, 100);
+	ft_draw_dir(var, var->p_x + i, var->p_y + j);
 }
 
-// void	ft_direction(t_type *var)
-// {
-	
-// }

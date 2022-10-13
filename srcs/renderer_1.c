@@ -6,7 +6,7 @@
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 14:52:03 by tapulask          #+#    #+#             */
-/*   Updated: 2022/10/12 18:04:29 by tapulask         ###   ########.fr       */
+/*   Updated: 2022/10/13 12:40:58 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,11 @@ char	*ft_mlx_setup(t_type *var)
 	var->mlx_obj = mlx_init();
 	var->p_x = 0;//this places the player somewhere in the map.
 	var->p_y = 0;
-	var->p_look_angle = 0.0;//initialize this later
-	var->p_lookx = 0.0;
-	var->p_looky = 0.0;
+	var->p_look_angle = 0.1;//initialize this later
+	// var->p_lookx = 0.0;
+	// var->p_looky = 0.0;
+	var->p_dx = cos(var->p_look_angle) * 10;
+	var->p_dy = sin(var->p_look_angle) * 10;
 	if (!var->mlx_obj)
 	{
 		write(1, "Error\nMLX error\n", 17);
@@ -62,7 +64,9 @@ int	ft_end(t_type *vars)
 
 int	ft_input(int keysym, t_type *vars)
 {
-	if (keysym == XK_w || keysym == XK_a || keysym == XK_d || keysym == XK_s)
+	if (keysym == XK_w || keysym == XK_a ||
+		keysym == XK_d || keysym == XK_s ||
+		keysym == XK_Left || keysym == XK_Right)
 	{
 		ft_mv_control(keysym, vars);
 		return (0);
