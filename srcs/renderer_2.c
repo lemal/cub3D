@@ -6,7 +6,7 @@
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 14:43:18 by tapulask          #+#    #+#             */
-/*   Updated: 2022/10/13 12:39:43 by tapulask         ###   ########.fr       */
+/*   Updated: 2022/10/19 12:51:01 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,17 @@ void	ft_fill_pixel(t_type *var)
 	pixel = var->mlx_addr + (var->line_size * var->addr_y
 			+ (var->bpp / 8) * var->addr_x);
 	*(int *)pixel = var->color;
+}
+
+bool	ft_compare_color(t_type *var, int x, int y, int color)
+{
+	char	*pixel;
+
+	pixel = var->mlx_addr + (var->line_size * y
+			+ (var->bpp / 8) * x);
+	if ((int)*pixel == color && (int)*pixel != BLACK)
+		return (true);
+	return (false);
 }
 
 void	ft_draw_rect(t_type *var, int x, int y, int	size)
@@ -49,7 +60,9 @@ void	ft_draw_back(t_type *var)
 {
 	var->color = BLACK;
 	var->len_rect_x = WIDTH;
+	// var->mlx_draw = var->mlx_addr;
 	ft_draw_rect(var, 0, 0, (WIDTH * HEIGHT));
+	// var->mlx_draw = var->mlx_env;
 	// var->color = GREEN;
 	// ft_draw_rect(var, 0, 0, (WIDTH * HEIGHT) / 2);
 	// var->color = BLUE;
