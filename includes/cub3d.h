@@ -6,7 +6,7 @@
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 13:26:54 by tapulask          #+#    #+#             */
-/*   Updated: 2022/10/19 12:36:37 by tapulask         ###   ########.fr       */
+/*   Updated: 2022/10/21 12:30:36 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
 # define WIDTH 900
 # define HEIGHT 600
 # define PI 3.14159236535
+#include <stdio.h>
 typedef struct s_struct
 {
 	char	*map;
@@ -64,6 +65,13 @@ typedef struct s_struct
 	void	*mlx_env_window;
 	void	*mlx_env_img;
 	void	*mlx_env_addr;
+	int		env_bpp;
+	int		env_line_size;
+	int		env_endian;
+	int		env_addr_x;
+	int		env_addr_y;
+	int		env_color;
+	int		env_len_rect_x;
 	// int		dof;
 	// int		mapx;
 	// int		mapy;
@@ -78,5 +86,6 @@ void	ft_player(t_type *var);
 void	ft_mv_control(int keysym, t_type *var);
 void	ft_draw_minimap(t_type *var);
 void	ft_fill_pixel(t_type *var);
-bool	ft_compare_color(t_type *var, int x, int y, int color);
+void	ft_fill_env_pixel(t_type *var);
+void	ft_trace_distance(t_type *var);
 #endif
