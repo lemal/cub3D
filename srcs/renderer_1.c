@@ -6,7 +6,7 @@
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 14:52:03 by tapulask          #+#    #+#             */
-/*   Updated: 2022/10/21 12:17:46 by tapulask         ###   ########.fr       */
+/*   Updated: 2022/10/22 13:13:33 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,10 @@ int	ft_render(t_type *var)
 	
 	ft_draw_back(var);
 	ft_draw_minimap(var);
-	ft_player(var);
-	// ft_trace_distance(var);
+	var->color = PLAYER;
+	var->len_rect_x = 2;
+	ft_draw_rect(var, var->p_x, var->p_y, 4);
+	ft_trace_distance(var);
 	// mlx_put_image_to_window(var->mlx_obj,
 	// 	var->mlx_window, var->mlx_image, 0, 0);
 	mlx_put_image_to_window(var->mlx_env,
@@ -90,9 +92,13 @@ void	ft_game(t_type	*var)
 {
 	//call the drawer once here to start the game, from movements later.
 	mlx_loop_hook(var->mlx_env, &ft_render, var);
-	// mlx_loop_hook(var->mlx_env, &ft_render, var);
 	mlx_hook(var->mlx_env_window, KeyPress, KeyPressMask, &ft_input, var);
 	mlx_hook(var->mlx_env_window, DestroyNotify,
 		StructureNotifyMask, &ft_end, var);
 	mlx_loop(var->mlx_env);
+	// mlx_loop_hook(var->mlx_obj, &ft_render, var);
+	// mlx_hook(var->mlx_window, KeyPress, KeyPressMask, &ft_input, var);
+	// mlx_hook(var->mlx_window, DestroyNotify,
+	// 	StructureNotifyMask, &ft_end, var);
+	// mlx_loop(var->mlx_obj);
 }

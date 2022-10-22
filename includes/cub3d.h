@@ -6,7 +6,7 @@
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 13:26:54 by tapulask          #+#    #+#             */
-/*   Updated: 2022/10/21 12:30:36 by tapulask         ###   ########.fr       */
+/*   Updated: 2022/10/22 13:01:24 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,10 +82,11 @@ char	*ft_mlx_setup(t_type *var);
 void	ft_game(t_type	*var);
 void	ft_draw_back(t_type *var);
 void	ft_draw_rect(t_type *var, int x, int y, int	size);
-void	ft_player(t_type *var);
+void	ft_player_setup(t_type *var);
 void	ft_mv_control(int keysym, t_type *var);
 void	ft_draw_minimap(t_type *var);
 void	ft_fill_pixel(t_type *var);
 void	ft_fill_env_pixel(t_type *var);
 void	ft_trace_distance(t_type *var);
+bool	ft_compare_color(t_type *var, int color);
 #endif

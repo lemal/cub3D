@@ -6,7 +6,7 @@
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 12:48:32 by tapulask          #+#    #+#             */
-/*   Updated: 2022/10/21 11:44:54 by tapulask         ###   ########.fr       */
+/*   Updated: 2022/10/22 13:17:08 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,10 +102,10 @@ void	ft_trace_distance(t_type *var)
 	r_part_num = 0;
 	r_part_size = PI / (3 * WIDTH);//one part of the angle
 	var->r_angle = var->p_look_angle + (PI / 6);//in the direction the player looks - add fov
-	if (var->r_angle < 0)
-		var->r_angle += 2 * PI;
-	else if (var->r_angle > 2 * PI)
-		var->r_angle -= 2 * PI;
+	// if (var->r_angle < 0)
+	// 	var->r_angle += 2 * PI;
+	// else if (var->r_angle > 2 * PI)
+	// 	var->r_angle -= 2 * PI;
 	while (var->p_look_angle < var->r_angle)
 	{
 		var->r_angle -= r_part_size;
@@ -114,10 +114,10 @@ void	ft_trace_distance(t_type *var)
 		// var->env_addr_x = r_part_num;
 		// var->env_addr_y = 50;
 		// ft_fill_env_pixel(var);
-		if (var->r_angle < 0)
-			var->r_angle += 2 * PI;
-		else if (var->r_angle > 2 * PI)
-			var->r_angle -= 2 * PI;
+		// if (var->r_angle < 0)
+		// 	var->r_angle += 2 * PI;
+		// else if (var->r_angle > 2 * PI)
+		// 	var->r_angle -= 2 * PI;
 		// r_dist_to_wall = ft_first_wall_hit(var);//here do stuff
 		//the stuff - r_angle minus p_look_angle for this while, p_look angle minus r_angle for second
 		ft_draw_wall(var, var->r_angle - var->p_look_angle, ft_first_wall_hit(var), r_part_num);
@@ -126,14 +126,14 @@ void	ft_trace_distance(t_type *var)
 	while (var->r_angle > var->p_look_angle - (PI / 6))
 	{
 		var->r_angle -= r_part_size;//exchange this for a function that does the same, controlling angle value
-		// var->env_addr_x = r_part_num;
-		// var->env_addr_y = 50;
-		// ft_fill_env_pixel(var);
-		if (var->r_angle < 0)
-			var->r_angle += 2 * PI;
-		else if (var->r_angle > 2 * PI)
-			var->r_angle -= 2 * PI;
-		// r_dist_to_wall = ft_first_wall_hit(var);
+	// 	// var->env_addr_x = r_part_num;
+	// 	// var->env_addr_y = 50;
+	// 	// ft_fill_env_pixel(var);
+	// 	// if (var->r_angle < 0)
+	// 	// 	var->r_angle += 2 * PI;
+	// 	// else if (var->r_angle > 2 * PI)
+	// 	// 	var->r_angle -= 2 * PI;
+	// 	// r_dist_to_wall = ft_first_wall_hit(var);
 		ft_draw_wall(var, var->r_angle - var->p_look_angle - (PI / 6), ft_first_wall_hit(var), r_part_num);
 		r_part_num++;
 	}
