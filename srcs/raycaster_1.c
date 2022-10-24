@@ -6,7 +6,7 @@
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 12:48:32 by tapulask          #+#    #+#             */
-/*   Updated: 2022/10/22 13:17:08 by tapulask         ###   ########.fr       */
+/*   Updated: 2022/10/24 18:04:58 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,23 @@
 // 	}
 // }
 
+bool	ft_check_surround(t_type *var, int color)
+{
+	char	*pixel;
+	int		x;
+	int		y;
+
+	x = (int)(var->p_x + var->r_dx);
+	y = (int)(var->p_y + var->r_dy);
+	x += var->r_dx;
+	y += var->r_dy;
+	pixel = var->mlx_addr + (var->line_size * y
+			+ (var->bpp / 8) * x);
+	if (*(int *)pixel == color)
+		return (true);
+	return (false);
+}
+
 bool	ft_compare_color(t_type *var, int color)
 {
 	char	*pixel;
@@ -51,7 +68,7 @@ bool	ft_compare_color(t_type *var, int color)
 	y = (int)(var->p_y + var->r_dy);
 	pixel = var->mlx_addr + (var->line_size * y
 			+ (var->bpp / 8) * x);
-	if (*(int *)pixel != BLACK && *(int *)pixel == color)
+	if (*(int *)pixel == color)
 		return (true);
 	return (false);
 }
@@ -60,15 +77,18 @@ float	ft_first_wall_hit(t_type *var)
 {
 	float	multiplier;
 
-	multiplier = 3;
-	var->r_dx = cos(var->r_angle) * multiplier;
-	var->r_dy = sin(var->r_angle) * multiplier;
-	while (!ft_compare_color(var, GREEN)) //take care of the vertical and horizontal on the line cases - infinite while. Some kind of boundaries?
+	multiplier = 1;
+	// printf("%f, %f\n", var->r_dx, var->r_dy);
+	while (true)
 	{
-		var->r_dx = cos(var->r_angle) * multiplier;
-		var->r_dy = sin(var->r_angle) * multiplier;
+		var->r_dx = cosf(var->r_angle) * multiplier;
+		var->r_dy = sinf(var->r_angle) * multiplier;
+		if (ft_compare_color(var, GREEN))
+			break ;
 		multiplier += 0.01;
 	}
+	//var->r_dx + player position - wiggle conditionally
+	// ft_wall_colour_set(var);
 	//here we have coordinates of the wall cross and computable distance from floats.
 	return (powf((powf(var->r_dx, 2) + powf(var->r_dy, 2)), 0.5));//for that angle also execute
 }
@@ -83,8 +103,11 @@ void	ft_draw_wall(t_type *var, float theta, float wall_d, int x)
 	i = 0;
 	scaled_column = (int)(HEIGHT / (wall_d * cosf(theta)));
 	padding = (HEIGHT - scaled_column) / 2;
+	if (padding < 0)
+		padding = 0;
 	var->env_color = RED;
 	var->env_addr_x = x;
+	// ft_wall_colour_set(var);
 	while (i < scaled_column)
 	{
 		var->env_addr_y = padding + i;
@@ -96,45 +119,18 @@ void	ft_draw_wall(t_type *var, float theta, float wall_d, int x)
 void	ft_trace_distance(t_type *var)
 {
 	float	r_part_size;
-	// float	r_distance;
 	int		r_part_num;
 
 	r_part_num = 0;
 	r_part_size = PI / (3 * WIDTH);//one part of the angle
 	var->r_angle = var->p_look_angle + (PI / 6);//in the direction the player looks - add fov
-	// if (var->r_angle < 0)
-	// 	var->r_angle += 2 * PI;
-	// else if (var->r_angle > 2 * PI)
-	// 	var->r_angle -= 2 * PI;
-	while (var->p_look_angle < var->r_angle)
-	{
-		var->r_angle -= r_part_size;
-		// ft_first_wall_hit(var);
-		// var->env_color = RED;
-		// var->env_addr_x = r_part_num;
-		// var->env_addr_y = 50;
-		// ft_fill_env_pixel(var);
-		// if (var->r_angle < 0)
-		// 	var->r_angle += 2 * PI;
-		// else if (var->r_angle > 2 * PI)
-		// 	var->r_angle -= 2 * PI;
-		// r_dist_to_wall = ft_first_wall_hit(var);//here do stuff
-		//the stuff - r_angle minus p_look_angle for this while, p_look angle minus r_angle for second
-		ft_draw_wall(var, var->r_angle - var->p_look_angle, ft_first_wall_hit(var), r_part_num);
-		r_part_num++;
-	}
 	while (var->r_angle > var->p_look_angle - (PI / 6))
 	{
-		var->r_angle -= r_part_size;//exchange this for a function that does the same, controlling angle value
-	// 	// var->env_addr_x = r_part_num;
-	// 	// var->env_addr_y = 50;
-	// 	// ft_fill_env_pixel(var);
-	// 	// if (var->r_angle < 0)
-	// 	// 	var->r_angle += 2 * PI;
-	// 	// else if (var->r_angle > 2 * PI)
-	// 	// 	var->r_angle -= 2 * PI;
-	// 	// r_dist_to_wall = ft_first_wall_hit(var);
-		ft_draw_wall(var, var->r_angle - var->p_look_angle - (PI / 6), ft_first_wall_hit(var), r_part_num);
+		var->r_angle -= r_part_size;
+		if (var->p_look_angle > var->r_angle)
+			ft_draw_wall(var, var->p_look_angle - var->r_angle, ft_first_wall_hit(var), r_part_num);
+		else
+			ft_draw_wall(var, var->r_angle - var->p_look_angle, ft_first_wall_hit(var), r_part_num);
 		r_part_num++;
 	}
 }

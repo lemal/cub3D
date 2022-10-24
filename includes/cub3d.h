@@ -6,7 +6,7 @@
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 13:26:54 by tapulask          #+#    #+#             */
-/*   Updated: 2022/10/22 13:01:24 by tapulask         ###   ########.fr       */
+/*   Updated: 2022/10/24 18:04:40 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@
 # define BLACK 0x000000
 # define PLAYER 0xFF00F0
 # define RED 0xFF0000;
+# define YELLOW 0xFFFF00
+# define WHITE 0xFCFCFF
+# define ORANGE 0xFFA500
 # define WIDTH 900
 # define HEIGHT 600
 # define PI 3.14159236535
@@ -60,6 +63,8 @@ typedef struct s_struct
 	// float	r_y;
 	float	r_dx;
 	float	r_dy;
+	bool	horizontal;
+	bool	vertical;
 	//second mlx_objects
 	void	*mlx_env;
 	void	*mlx_env_window;
@@ -88,5 +93,6 @@ void	ft_draw_minimap(t_type *var);
 void	ft_fill_pixel(t_type *var);
 void	ft_fill_env_pixel(t_type *var);
 void	ft_trace_distance(t_type *var);
-bool	ft_compare_color(t_type *var, int color);
+bool	ft_check_surround(t_type *var, int color);
+// void	ft_wall_colour_set(t_type *var);
 #endif
