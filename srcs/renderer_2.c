@@ -6,7 +6,7 @@
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 14:43:18 by tapulask          #+#    #+#             */
-/*   Updated: 2022/10/25 13:56:57 by tapulask         ###   ########.fr       */
+/*   Updated: 2022/10/27 20:04:22 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,26 +91,3 @@ void	ft_draw_back(t_type *var)
 	var->env_color = BLUE;
 	ft_draw_env_rect(var, 0, HEIGHT / 2, (WIDTH * HEIGHT) / 2);
 }
-
-// void	ft_mv_control(int keysym, t_type *var)
-// {
-// 	if (var->p_look_angle < 0)
-// 		var->p_look_angle = 2 * PI;
-// 	else if (var->p_look_angle > 2 * PI)
-// 		var->p_look_angle = 0;
-// 	if (keysym == XK_w && var->p_y - 5 > 0)
-// 		var->p_y -= 5;
-// 	else if (keysym == XK_a && var->p_x - 5 > 0)
-// 		var->p_x -= 5;
-// 	else if (keysym == XK_d && var->p_x + 5 <= WIDTH) //map_size needed for this fix, otherwise drawn nonenv will seg
-// 		var->p_x += 5;
-// 	else if (keysym == XK_s && var->p_y + 5 <= HEIGHT) //control switching should occur for orientation
-// 		var->p_y += 5;
-// 	else if (keysym == XK_Left)
-// 		var->p_look_angle -= 0.1;
-// 	else if (keysym == XK_Right)
-// 		var->p_look_angle += 0.1;
-// 	var->p_dx = cos(var->p_look_angle) * 10;
-// 	var->p_dy = sin(var->p_look_angle) * 10;
-// 	printf("var->p_y is %d\n, var->p_x is %d\n", var->p_y, var->p_x);
-// }

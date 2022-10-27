@@ -6,7 +6,7 @@
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 11:41:38 by tapulask          #+#    #+#             */
-/*   Updated: 2022/10/24 20:29:04 by tapulask         ###   ########.fr       */
+/*   Updated: 2022/10/27 20:04:59 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,31 +135,25 @@ void	ft_draw_minimap(t_type *var)
 	// ft_minimap_edges(var);
 }
 
-void	ft_draw_dir(t_type *var, int x, int y)
-{
-	int		addr_x;
-	int		addr_y;
+// void	ft_draw_dir(t_type *var, int x, int y)
+// {
+// 	int		addr_x;
+// 	int		addr_y;
 
-	addr_x = var->addr_x;
-	addr_y = var->addr_y;
-	var->color = RED;
-	var->addr_x = x + 5 + var->p_dx;
-	var->addr_y = y + 5 + var->p_dy;
-	ft_fill_pixel(var);
-	var->addr_y = addr_y;
-	var->addr_x = addr_x;
-}
+// 	addr_x = var->addr_x;
+// 	addr_y = var->addr_y;
+// 	var->color = RED;
+// 	var->addr_x = x + 5 + var->p_dx;
+// 	var->addr_y = y + 5 + var->p_dy;
+// 	ft_fill_pixel(var);
+// 	var->addr_y = addr_y;
+// 	var->addr_x = addr_x;
+// }
 
 void	ft_player_setup(t_type *var)
 {
-	// int			i;
-	// int			j;
 	int			k;
 
-	// i = 0;
-	// j = 0;
-	// var->p_x = 0;
-	// var->p_y = 0;
 	k = 0;
 	while (var->map[k])
 	{
@@ -175,13 +169,4 @@ void	ft_player_setup(t_type *var)
 		}
 		k++;
 	}
-	// var->color = PLAYER;
-	// var->len_rect_x = 2;
-	// ft_draw_rect(var, var->p_x, var->p_y, 4);
-	// ft_draw_dir(var, var->p_x + i, var->p_y + j);
 }
-
-// void	ft_walls(t_type *var)
-// {
-// 	//scaled lines, scale HEIGHT
-// }

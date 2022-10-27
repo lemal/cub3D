@@ -6,7 +6,7 @@
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 12:48:32 by tapulask          #+#    #+#             */
-/*   Updated: 2022/10/27 18:44:57 by tapulask         ###   ########.fr       */
+/*   Updated: 2022/10/27 19:32:40 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 bool	ft_incr_x(t_type *var, float x)
 {
 	var->r_dx += 5;
-	if (ft_compare_color(var, BLUE))
+	if (ft_compare_color(var, BLUE) || ft_compare_color(var, PLAYER))
 	{
 		var->r_dx = x;
 		if (var->top_left || var->bot_left)
@@ -33,7 +33,7 @@ bool	ft_incr_x(t_type *var, float x)
 bool	ft_decr_x(t_type *var, float x)
 {
 	var->r_dx -= 5;
-	if (ft_compare_color(var, BLUE))
+	if (ft_compare_color(var, BLUE) || ft_compare_color(var, PLAYER))
 	{
 		var->r_dx = x;
 		if (var->top_right || var->bot_right)
@@ -50,7 +50,7 @@ bool	ft_decr_x(t_type *var, float x)
 bool	ft_incr_y(t_type *var, float y)
 {
 	var->r_dy += 5;
-	if (ft_compare_color(var, BLUE))
+	if (ft_compare_color(var, BLUE) || ft_compare_color(var, PLAYER))
 	{
 		var->r_dy = y;
 		if (var->top_left || var->top_right)
@@ -68,7 +68,7 @@ bool	ft_incr_y(t_type *var, float y)
 bool	ft_decr_y(t_type *var, float y)
 {
 	var->r_dy -= 5;
-	if (ft_compare_color(var, BLUE))
+	if (ft_compare_color(var, BLUE) || ft_compare_color(var, PLAYER))
 	{
 		var->r_dy = y;
 		if (var->bot_left || var->bot_right)
@@ -92,6 +92,10 @@ void	ft_wall_select(t_type *var, float x, float y)
 		return ;
 	else if (ft_decr_y(var, y))
 		return ;
+	// ft_incr_x(var, x);//ft_corners(var, x, y)
+	// ft_decr_x(var, x);
+	// ft_incr_y(var, y);
+	// ft_decr_y(var, y);
 	// ft_corner_checks(var, x, y);
 }
 

@@ -6,7 +6,7 @@
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 14:43:18 by tapulask          #+#    #+#             */
-/*   Updated: 2022/10/24 11:27:11 by tapulask         ###   ########.fr       */
+/*   Updated: 2022/10/27 20:01:33 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,5 @@ void	ft_mv_control(int keysym, t_type *var)
 		var->p_look_angle += 0.1;
 	else if (keysym == XK_Right)
 		var->p_look_angle -= 0.1;
-	var->p_dx = cos(var->p_look_angle) * 10;
-	var->p_dy = sin(var->p_look_angle) * 10;
 	// printf("var->p_y is %d\n", var->p_y);
 }

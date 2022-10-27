@@ -6,7 +6,7 @@
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 13:26:54 by tapulask          #+#    #+#             */
-/*   Updated: 2022/10/27 18:14:06 by tapulask         ###   ########.fr       */
+/*   Updated: 2022/10/27 19:59:19 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ typedef struct s_struct
 	int		len_rect_x;
 	int		p_x;
 	int		p_y;
-	float	p_dx;
-	float	p_dy;
+	// float	p_dx;
+	// float	p_dy;
 	float	p_look_angle;
 	//makes confused groveling sounds
 	float	r_angle;

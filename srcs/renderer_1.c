@@ -6,7 +6,7 @@
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 14:52:03 by tapulask          #+#    #+#             */
-/*   Updated: 2022/10/24 20:29:48 by tapulask         ###   ########.fr       */
+/*   Updated: 2022/10/27 20:01:41 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,6 @@ char	*ft_mlx_setup(t_type *var)
 	var->p_x = 0;//this places the player somewhere in the map.
 	var->p_y = 0;
 	var->p_look_angle = 0; //looks north, init offset based on the map.s
-	// var->p_lookx = 0.0;
-	// var->p_looky = 0.0;
-	var->p_dx = cos(var->p_look_angle) * 10;
-	var->p_dy = sin(var->p_look_angle) * 10;
 	if (!var->mlx_obj)
 	{
 		write(1, "Error\nMLX error\n", 17);

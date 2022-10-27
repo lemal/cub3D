@@ -6,40 +6,11 @@
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 12:48:32 by tapulask          #+#    #+#             */
-/*   Updated: 2022/10/27 17:33:45 by tapulask         ###   ########.fr       */
+/*   Updated: 2022/10/27 19:53:52 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-//final wall drawing - ?
-
-// void	ft_draw_wall(t_type *var, float theta, float wall_d, int x)
-// {
-// 	int		i;
-// 	int		midpoint;
-// 	int		wall_h;
-// 	float	wall_height;
-
-// 	i = 0;
-// 	midpoint = HEIGHT / 2;
-// 	wall_height = HEIGHT / (wall_d * cosf(theta));
-// 	wall_h = (int)wall_height / 2;
-// 	var->env_color = BLUE;
-// 	var->env_addr_x = x;
-// 	while (i < midpoint)
-// 	{
-// 		var->env_addr_y = midpoint - i;
-// 		ft_fill_env_pixel(var);
-// 		i++;
-// 	}
-// 	while (i > 0)
-// 	{
-// 		var->env_addr_y = midpoint + i;
-// 		ft_fill_env_pixel(var);
-// 		i--;
-// 	}
-// }
 
 bool	ft_check_surround(t_type *var, int color)
 {
@@ -110,6 +81,7 @@ void	ft_draw_wall(t_type *var, float theta, float wall_d, int x)
 	var->env_addr_x = x;
 	// ft_wall_select(var);
 	// ft_wall_colour_set(var);
+	// ft_coordinate_checks(var, var->r_dx, var->r_dy);
 	while (i < scaled_column)
 	{
 		var->env_addr_y = padding + i;
@@ -137,42 +109,3 @@ void	ft_trace_distance(t_type *var)
 		r_part_num++;
 	}
 }
-
-
-
-//development paused cuz I couldn't motivate this over ^^
-// int	ft_quadrant_preset(t_type *var)
-// {
-// 	if (var->p_look_angle > 0 && var->p_look_angle < PI / 2)
-// 		return (0);
-// 	if (var->p_look_angle >= PI / 2 && var->p_look_angle < PI)
-// 		return (1);
-// 	if (var->p_look_angle >= PI && var->p_look_angle < (3 * PI) / 2)
-// 		return (2);
-// 	if (var->p_look_angle >= (3 * PI) / 2 && var->p_look_angle <= 2 * PI)
-// 		return (3);	
-// }
-
-// void	ft_quad_one(t_type *var)
-// {
-// 	bool	horizontal;
-
-// 	horizontal = false;
-// 	if (var->p_look_angle > (PI / 4))
-// 		horizontal = true;
-	
-// }
-
-// void	ft_quadrants(t_type *var)
-// {
-// 	//call a function pointer from the array of function pointers.
-// 	void	(*quadrant[4])(t_type *);
-// 	int	num;
-
-// 	quadrant[0] = ft_quad_one;
-// // quadrant[1] = ft_quad_two;
-// // quadrant[2] = ft_quad_three;
-// // quadrant[3] = ft_quad_four;
-// 	num = ft_quadrant_preset(var);
-// 	quadrant[num](var);
-// }
