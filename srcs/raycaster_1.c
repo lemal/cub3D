@@ -6,7 +6,7 @@
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 12:48:32 by tapulask          #+#    #+#             */
-/*   Updated: 2022/10/27 12:35:20 by tapulask         ###   ########.fr       */
+/*   Updated: 2022/10/27 14:16:55 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,11 +87,8 @@ float	ft_first_wall_hit(t_type *var)
 			break ;
 		multiplier += 0.01;
 	}
-	//var->r_dx + player position - wiggle conditionally
-	// ft_wall_colour_set(var);
-	// ft_colour_setter(var);
-	var->env_color = RED;
-	// ft_wall_select(var);
+	// var->env_color = RED;
+	ft_wall_select(var, var->r_dx, var->r_dy);
 	//here we have coordinates of the wall cross and computable distance from floats.
 	return (powf((powf(var->r_dx, 2) + powf(var->r_dy, 2)), 0.5));//for that angle also execute
 }
@@ -110,6 +107,7 @@ void	ft_draw_wall(t_type *var, float theta, float wall_d, int x)
 		padding = 0;
 	// var->env_color = RED;
 	var->env_addr_x = x;
+	// ft_wall_select(var);
 	// ft_wall_colour_set(var);
 	while (i < scaled_column)
 	{

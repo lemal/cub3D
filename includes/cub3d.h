@@ -6,7 +6,7 @@
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 13:26:54 by tapulask          #+#    #+#             */
-/*   Updated: 2022/10/27 12:26:44 by tapulask         ###   ########.fr       */
+/*   Updated: 2022/10/27 15:51:12 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,10 +94,17 @@ void	ft_fill_pixel(t_type *var);
 void	ft_fill_env_pixel(t_type *var);
 void	ft_trace_distance(t_type *var);
 bool	ft_check_surround(t_type *var, int color);
-void	ft_set_wall_faces(t_type *var);
-char	*ft_stepper(t_type *var);
-int		ft_smallest(int	*arr);
-void	ft_wall_select(t_type *var);
+void	ft_wall_select(t_type *var, float x, float y);
+bool	ft_compare_color(t_type *var, int color);
+bool	ft_decr_y(t_type *var, float y);
+bool	ft_incr_y(t_type *var, float y);
+bool	ft_decr_x(t_type *var, float x);
+bool	ft_incr_x(t_type *var, float x);
+// void	ft_corner_checks(t_type *var, float x, float y);
+// void	ft_set_wall_faces(t_type *var);
+// char	*ft_stepper(t_type *var);
+// int		ft_smallest(int	*arr);
+// void	ft_wall_select(t_type *var);
 // void	ft_wall_colour_set(t_type *var);
 // void	ft_colour_setter(t_type	*var);
 #endif
