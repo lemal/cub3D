@@ -6,7 +6,7 @@
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 13:26:54 by tapulask          #+#    #+#             */
-/*   Updated: 2022/10/24 18:04:40 by tapulask         ###   ########.fr       */
+/*   Updated: 2022/10/27 12:26:44 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,7 @@ typedef struct s_struct
 	int		len_rect_x;
 	int		p_x;
 	int		p_y;
-	// float	p_lookx;
 	float	p_dx;
-	// float	p_looky;
 	float	p_dy;
 	float	p_look_angle;
 	//makes confused groveling sounds
@@ -63,8 +61,10 @@ typedef struct s_struct
 	// float	r_y;
 	float	r_dx;
 	float	r_dy;
-	bool	horizontal;
-	bool	vertical;
+	bool	top;
+	bool	bot;
+	bool	left;
+	bool	right;
 	//second mlx_objects
 	void	*mlx_env;
 	void	*mlx_env_window;
@@ -94,5 +94,10 @@ void	ft_fill_pixel(t_type *var);
 void	ft_fill_env_pixel(t_type *var);
 void	ft_trace_distance(t_type *var);
 bool	ft_check_surround(t_type *var, int color);
+void	ft_set_wall_faces(t_type *var);
+char	*ft_stepper(t_type *var);
+int		ft_smallest(int	*arr);
+void	ft_wall_select(t_type *var);
 // void	ft_wall_colour_set(t_type *var);
+// void	ft_colour_setter(t_type	*var);
 #endif

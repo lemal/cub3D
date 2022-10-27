@@ -6,7 +6,7 @@
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 11:41:38 by tapulask          #+#    #+#             */
-/*   Updated: 2022/10/22 13:11:31 by tapulask         ###   ########.fr       */
+/*   Updated: 2022/10/24 20:29:04 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,57 @@
 // 			i = 0;		 
 // 		}
 // 		k++;
+// 	}
+// }
+
+// void	ft_etcher(t_type *var, int y, int lim)
+// {
+// 	//set colour based on the reconstructed position
+// 	int	x;
+// 	int	i;
+// 	int	j;
+
+// 	i = var->addr_x;
+// 	j = var->addr_y;
+// 	x = lim - var->len_rect_x;
+	
+// 	(void) x;
+// 	(void) lim;
+// 	(void) y;
+// 	(void) j;
+// 	(void) i;
+// 	// if (j == y && i > x && i < lim)
+// 	// 	var->color = YELLOW;
+// 	// else if (j == y + 1 && i > x + 1 && i < lim - 1)
+// 	// 	var->color = YELLOW;
+// 	// else if (j == y + 38 && i > x + 1 && i < lim - 1)
+// 	// 	var->color = BLACK;
+// 	// else if (j == y + 39 && i > x && i < lim)
+// 	// 	var->color = BLACK;
+// }
+
+// void	ft_draw_etched_rect(t_type *var, int x, int y, int size)
+// {
+// 	int	i;
+// 	int	j;
+// 	int	tot;
+
+// 	tot = 0;
+// 	i = x;
+// 	j = y;
+// 	while (tot < size)
+// 	{
+// 		while (i <  x + var->len_rect_x)
+// 		{
+// 			var->addr_x = i;
+// 			var->addr_y = j;
+// 			ft_etcher(var, y, x + var->len_rect_x);
+// 			ft_fill_pixel(var);
+// 			i++;
+// 			tot++;
+// 		}
+// 		i = x;
+// 		j++;
 // 	}
 // }
 

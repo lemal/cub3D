@@ -6,7 +6,7 @@
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 13:26:51 by tapulask          #+#    #+#             */
-/*   Updated: 2022/10/21 20:42:58 by tapulask         ###   ########.fr       */
+/*   Updated: 2022/10/26 17:33:43 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_map(t_type *var)
 int	main(void)
 {
 	t_type	var;
-	
+
 	ft_map(&var);
 	if (!ft_mlx_setup(&var))
 		return (1);
