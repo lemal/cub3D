@@ -6,7 +6,7 @@
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 12:48:32 by tapulask          #+#    #+#             */
-/*   Updated: 2022/10/27 14:16:55 by tapulask         ###   ########.fr       */
+/*   Updated: 2022/10/27 17:33:45 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,8 @@ float	ft_first_wall_hit(t_type *var)
 		multiplier += 0.01;
 	}
 	// var->env_color = RED;
-	ft_wall_select(var, var->r_dx, var->r_dy);
+	// ft_wall_select(var, var->r_dx, var->r_dy);
+	ft_coordinate_checks(var, var->r_dx, var->r_dy);
 	//here we have coordinates of the wall cross and computable distance from floats.
 	return (powf((powf(var->r_dx, 2) + powf(var->r_dy, 2)), 0.5));//for that angle also execute
 }

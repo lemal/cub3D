@@ -6,7 +6,7 @@
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 13:26:54 by tapulask          #+#    #+#             */
-/*   Updated: 2022/10/27 15:51:12 by tapulask         ###   ########.fr       */
+/*   Updated: 2022/10/27 18:14:06 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,10 @@ typedef struct s_struct
 	// float	r_y;
 	float	r_dx;
 	float	r_dy;
-	bool	top;
-	bool	bot;
-	bool	left;
-	bool	right;
+	bool	top_left;
+	bool	top_right;
+	bool	bot_left;
+	bool	bot_right;
 	//second mlx_objects
 	void	*mlx_env;
 	void	*mlx_env_window;
@@ -100,6 +100,7 @@ bool	ft_decr_y(t_type *var, float y);
 bool	ft_incr_y(t_type *var, float y);
 bool	ft_decr_x(t_type *var, float x);
 bool	ft_incr_x(t_type *var, float x);
+void	ft_coordinate_checks(t_type *var, float	x, float y);
 // void	ft_corner_checks(t_type *var, float x, float y);
 // void	ft_set_wall_faces(t_type *var);
 // char	*ft_stepper(t_type *var);

@@ -6,159 +6,111 @@
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 12:48:32 by tapulask          #+#    #+#             */
-/*   Updated: 2022/10/27 15:51:26 by tapulask         ###   ########.fr       */
+/*   Updated: 2022/10/27 18:30:34 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-//ok so ambiguous corner situations - problem
-//	
-//(-y,-x)..^..(-y, +x)
-//.......
-//<.....>
-//.......
-//(+y, -x)..x..(+y, +x)
-// void	ft_corner_checks(t_type *var, float x, float y)
+
+void	ft_top_left(t_type *var, float x, float y)
+{
+	if (var->p_x > x && var->p_y > y)
+		var->top_left = true;
+}
+
+void	ft_top_right(t_type *var, float x, float y)
+{
+	if (var->p_x < x && var->p_y > y)
+		var->top_right = true;
+}
+
+void	ft_bot_left(t_type *var, float x, float y)
+{
+	if (var->p_x > x && var->p_y < y)
+		var->bot_left = true;
+}
+
+void	ft_bot_right(t_type *var, float x, float y)
+{
+	if (var->p_x < x && var->p_y < y)
+		var->bot_right = true;
+}
+
+void	ft_coordinate_checks(t_type *var, float	x, float y)
+{
+	float	temp_x;
+	float	temp_y;
+	
+	var->bot_right = false;
+	var->bot_left = false;
+	var->top_right = false;
+	var->top_left = false;
+	temp_x = x + var->p_x;
+	temp_y = y + var->p_y;
+	// ft_wall_select(var, x, y);
+	ft_top_left(var, temp_x, temp_y);
+	ft_top_right(var, temp_x, temp_y);
+	ft_bot_left(var, temp_x, temp_y);
+	ft_bot_right(var, temp_x, temp_y);
+	ft_wall_select(var, x, y);
+}
+
+//unsure if works
+
+// void	ft_top_left(t_type *var, float x, float y)
 // {
-// 	// if ((ft_incr_x(var, x) && ft_incr_y(var, y))
-// 	// 	|| (ft_decr_x(var, x) && ft_incr_y(var, y)))
-// 	// 	var->env_color = BLACK;
-// 	// else if ((ft_incr_y(var, y) && ft_incr_x(var, x))
-// 	// 	|| ())
-// 	//identify if corner, then set first for that side
-
-// }
-// x<_____>x
-
-//with given r_dx and r_dy + player location, step through the possible vals
-// and return the side to be coloured.
-//may break if goes negative! -check and correct
-//find the smallest unit of steps from given position to border
-//based on the operation done and the bools' values, determine what face it is
-	//-- and ++ in x, return number of steps smallest
-
-// int	ft_step_down_vert(t_type *var)
-// {
-// 	int		i;
-// 	float	save_r_dx;
-// 	float	save_r_dy;
-
-// 	i = 1;
-// 	save_r_dx = var->r_dx;
-// 	save_r_dy = var->r_dy;
-// 	while (true)
+// 	if (var->p_x > x && var->p_y > y)
 // 	{
-// 		var->r_dy += i;
-// 		if (ft_check_surround(var, BLUE) || i == 39)
-// 			break ;
-// 		var->r_dx = save_r_dx;
-// 		var->r_dy = save_r_dy;
-// 		i++;
+// 		if (var->env_color == WHITE)
+// 			var->env_color = ORANGE;
+// 		else if (var->env_color == BLACK)
+// 			var->env_color = YELLOW;
 // 	}
-// 	var->r_dx = save_r_dx;
-// 	var->r_dy = save_r_dy;
-// 	return (i);
 // }
 
-// int	ft_step_up_vert(t_type *var)
+// void	ft_top_right(t_type *var, float x, float y)
 // {
-// 	int		i;
-// 	float	save_r_dx;
-// 	float	save_r_dy;
-
-// 	i = 1;
-// 	save_r_dx = var->r_dx;
-// 	save_r_dy = var->r_dy;
-// 	while (true)
+// 	if (var->p_x < x && var->p_y > y)
 // 	{
-// 		var->r_dy -= i;
-// 		if (var->r_dy <= 0)
-// 		{
-// 			i++;
-// 			break;
-// 		}
-// 		if (ft_check_surround(var, BLUE) || i == 39)
-// 			break ;
-// 		var->r_dx = save_r_dx;
-// 		var->r_dy = save_r_dy;
-// 		i++;
+// 		if (var->env_color == BLACK)
+// 			var->env_color = WHITE;
+// 		else if (var->env_color == YELLOW)
+// 			var->env_color = ORANGE;
 // 	}
-// 	var->r_dx = save_r_dx;
-// 	var->r_dy = save_r_dy;
-// 	return (i);
 // }
 
-// int	ft_step_left_hor(t_type *var)
+// void	ft_bot_left(t_type *var, float x, float y)
 // {
-// 	int		i;
-// 	float	save_r_dx;
-// 	float	save_r_dy;
-
-// 	i = 1;
-// 	save_r_dx = var->r_dx;
-// 	save_r_dy = var->r_dy;
-// 	while (true)
+// 	if (var->p_x > x && var->p_y < y)
 // 	{
-// 		var->r_dx -= i;
-// 		if (var->r_dx <= 0)
-// 		{
-// 			i++;
-// 			break;
-// 		}
-// 		if (ft_check_surround(var, BLUE) || i == 39)
-// 			break ;
-// 		var->r_dx = save_r_dx;
-// 		var->r_dy = save_r_dy;
-// 		i++;
+// 		if (var->env_color == WHITE)
+// 			var->env_color = BLACK;
+// 		else if (var->env_color == ORANGE)
+// 			var->env_color = YELLOW;
 // 	}
-// 	var->r_dx = save_r_dx;
-// 	var->r_dy = save_r_dy;
-// 	return (i);
 // }
 
-// int	ft_step_right_hor(t_type *var)
+// void	ft_bot_right(t_type *var, float x, float y)
 // {
-// 	int		i;
-// 	float	save_r_dx;
-// 	float	save_r_dy;
-
-// 	i = 1;
-// 	save_r_dx = var->r_dx;
-// 	save_r_dy = var->r_dy;
-// 	while (true)
+// 	if (var->p_x < x && var->p_y < y)
 // 	{
-// 		var->r_dx += i;
-// 		if (ft_check_surround(var, BLUE) || i == 39)
-// 			break ;
-// 		var->r_dx = save_r_dx;
-// 		var->r_dy = save_r_dy;
-// 		i++;
+// 		if (var->env_color == ORANGE)
+// 			var->env_color = WHITE;
+// 		else if (var->env_color == YELLOW)
+// 			var->env_color = BLACK;
 // 	}
-// 	var->r_dx = save_r_dx;
-// 	var->r_dy = save_r_dy;
-// 	return (i);
 // }
-// //what if we leave the map area with jumping the r_dx, r_dy? V
-// //assume handling of ^^
-// char	*ft_stepper(t_type *var)
+
+// void	ft_coordinate_checks(t_type *var, float	x, float y)
 // {
-// 	// int	horizontal_steps;
-// 	// int	vertical_steps;
-// 	int	steps[4];
-// 	int	step_store;
+// 	float	temp_x;
+// 	float	temp_y;
 
-// 	steps[0] = ft_step_left_hor(var);//sees left wall part
-// 	steps[1]= ft_step_right_hor(var);
-// 	steps[2] = ft_step_up_vert(var);
-// 	steps[3] = ft_step_down_vert(var);
-// 	step_store = ft_smallest(steps);
-// 	if (step_store == 0 || step_store == 1)
-// 		return ("horizontal wall");
-// 	else if (step_store == 2 || step_store == 3)
-// 		return ("vertical wall");
-// 	return ("wat");
-// 	// horizontal_steps = ft_step_horizontal(var);
-// 	// vertical_steps = ft_step_vertical(var);
-// 	//ifs for cases, should be a bunch.
+// 	temp_x = x + var->p_x;
+// 	temp_y = y + var->p_y;
+// 	ft_wall_select(var, x, y);
+// 	ft_top_left(var, temp_x, temp_y);
+// 	ft_top_right(var, temp_x, temp_y);
+// 	ft_bot_left(var, temp_x, temp_y);
+// 	ft_bot_right(var, temp_x, temp_y);
 // }
-
