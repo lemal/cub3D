@@ -6,19 +6,19 @@
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 14:52:03 by tapulask          #+#    #+#             */
-/*   Updated: 2022/10/30 12:23:00 by tapulask         ###   ########.fr       */
+/*   Updated: 2022/10/30 19:19:10 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
+//this drew the player on the prime map
+	// var->color = PLAYER;
+	// var->len_rect_x = 2;
+	// ft_draw_rect(var, var->p_x, var->p_y, 4);
 int	ft_render(t_type *var)
 {
 	ft_draw_back(var);
 	ft_draw_minimap(var);
-	var->color = PLAYER;
-	var->len_rect_x = 2;
-	ft_draw_rect(var, var->p_x, var->p_y, 4);
 	ft_trace_distance(var);
 	mlx_put_image_to_window(var->mlx_env,
 		var->mlx_env_window, var->mlx_env_img, 0, 0);

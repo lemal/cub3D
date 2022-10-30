@@ -6,7 +6,7 @@
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 14:43:18 by tapulask          #+#    #+#             */
-/*   Updated: 2022/10/30 12:21:18 by tapulask         ###   ########.fr       */
+/*   Updated: 2022/10/30 19:08:18 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,14 +80,14 @@ void	ft_draw_rect(t_type *var, int x, int y, int size)
 
 void	ft_draw_back(t_type *var)
 {
-	var->color = BLACK;
+	var->color = WHITE;
 	var->len_rect_x = WIDTH;
 	ft_draw_rect(var, 0, 0, (WIDTH * HEIGHT));
-	var->env_color = BLACK;
+	var->env_color = WHITE;//was black
 	var->env_len_rect_x = WIDTH;
 	ft_draw_env_rect(var, 0, 0, (WIDTH * HEIGHT));
-	var->env_color = GREEN;
+	var->env_color = GREEN;//floor
 	ft_draw_env_rect(var, 0, 0, (WIDTH * HEIGHT) / 2);
-	var->env_color = BLUE;
+	var->env_color = BLUE;//ceiling
 	ft_draw_env_rect(var, 0, HEIGHT / 2, (WIDTH * HEIGHT) / 2);
-}
+}//changing colour a bit

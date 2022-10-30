@@ -6,7 +6,7 @@
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 12:48:32 by tapulask          #+#    #+#             */
-/*   Updated: 2022/10/30 12:25:52 by tapulask         ###   ########.fr       */
+/*   Updated: 2022/10/30 19:37:32 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 bool	ft_incr_x(t_type *var, float x)
 {
 	var->r_dx += 1;
-	if (ft_compare_color(var, BLUE) || ft_compare_color(var, PLAYER))
+	if (ft_compare_color(var, BLUE))
 	{
 		var->r_dx = x;
-		var->env_color = YELLOW;
+		var->env_color = var->c_east;
 		return (true);
 	}
 	var->r_dx = x;
@@ -28,10 +28,10 @@ bool	ft_incr_x(t_type *var, float x)
 bool	ft_decr_x(t_type *var, float x)
 {
 	var->r_dx -= 1;
-	if (ft_compare_color(var, BLUE) || ft_compare_color(var, PLAYER))
+	if (ft_compare_color(var, BLUE))
 	{
 		var->r_dx = x;
-		var->env_color = WHITE;
+		var->env_color = var->c_west;
 		return (true);
 	}
 	var->r_dx = x;
@@ -41,10 +41,10 @@ bool	ft_decr_x(t_type *var, float x)
 bool	ft_incr_y(t_type *var, float y)
 {
 	var->r_dy += 1;
-	if (ft_compare_color(var, BLUE) || ft_compare_color(var, PLAYER))
+	if (ft_compare_color(var, BLUE))
 	{
 		var->r_dy = y;
-		var->env_color = ORANGE;
+		var->env_color = var->c_north;
 		return (true);
 	}
 	var->r_dy = y;
@@ -54,10 +54,10 @@ bool	ft_incr_y(t_type *var, float y)
 bool	ft_decr_y(t_type *var, float y)
 {
 	var->r_dy -= 1;
-	if (ft_compare_color(var, BLUE) || ft_compare_color(var, PLAYER))
+	if (ft_compare_color(var, BLUE))
 	{
 		var->r_dy = y;
-		var->env_color = BLACK;
+		var->env_color = var->c_south;
 		return (true);
 	}
 	var->r_dy = y;
@@ -71,6 +71,10 @@ void	ft_wall_select(t_type *var, float x, float y)
 	bool	wall_top;
 	bool	wall_bot;
 
+	wall_right = false;
+	wall_left = false;
+	wall_top = false;
+	wall_bot = false;
 	wall_right = ft_incr_x(var, x);
 	wall_left = ft_decr_x(var, x);
 	wall_top = ft_incr_y(var, y);

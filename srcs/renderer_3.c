@@ -6,7 +6,7 @@
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 11:41:38 by tapulask          #+#    #+#             */
-/*   Updated: 2022/10/30 12:19:27 by tapulask         ###   ########.fr       */
+/*   Updated: 2022/10/30 16:01:34 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	ft_draw_minimap(t_type *var)
 
 void	ft_player_setup(t_type *var)
 {
-	int			k;
+	int	k;
 
 	k = 0;
 	while (var->map[k])

@@ -6,7 +6,7 @@
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 13:26:51 by tapulask          #+#    #+#             */
-/*   Updated: 2022/10/30 12:24:03 by tapulask         ###   ########.fr       */
+/*   Updated: 2022/10/30 14:28:56 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,10 @@ int	main(int argc, char **argv)
 	if (argc != 1)
 		return (0);
 	ft_map(&var);
+	if (!ft_ye_wall_colour(&var))
+		return (0);
 	if (!ft_mlx_setup(&var))
-		return (1);
+		return (0);
 	ft_player_setup(&var);
 	ft_game(&var);
 	return (0);

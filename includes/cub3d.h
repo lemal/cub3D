@@ -6,7 +6,7 @@
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 13:26:54 by tapulask          #+#    #+#             */
-/*   Updated: 2022/10/30 12:06:38 by tapulask         ###   ########.fr       */
+/*   Updated: 2022/10/30 19:32:03 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 # define BLUE 0x0000FF
 # define BLACK 0x000000
 # define PLAYER 0xFF00F0
-# define RED 0xFF0000;
+# define RED 0xFF0000
 # define YELLOW 0xFFFF00
 # define WHITE 0xFCFCFF
 # define ORANGE 0xFFA500
@@ -52,13 +52,8 @@ typedef struct s_struct
 	int		len_rect_x;
 	int		p_x;
 	int		p_y;
-	// float	p_dx;
-	// float	p_dy;
 	float	p_look_angle;
-	//makes confused groveling sounds
 	float	r_angle;
-	// float	r_x;
-	// float	r_y;
 	float	r_dx;
 	float	r_dy;
 	bool	top_left;
@@ -77,11 +72,11 @@ typedef struct s_struct
 	int		env_addr_y;
 	int		env_color;
 	int		env_len_rect_x;
-	// int		dof;
-	// int		mapx;
-	// int		mapy;
-	// int		mapi;
-	// int		mapp;
+	//xpm_colours
+	int		c_north;
+	int		c_south;
+	int		c_east;
+	int		c_west;
 } t_type;
 char	*ft_mlx_setup(t_type *var);
 void	ft_game(t_type	*var);
@@ -100,11 +95,5 @@ bool	ft_decr_y(t_type *var, float y);
 bool	ft_incr_y(t_type *var, float y);
 bool	ft_decr_x(t_type *var, float x);
 bool	ft_incr_x(t_type *var, float x);
-// void	ft_corner_checks(t_type *var, float x, float y);
-// void	ft_set_wall_faces(t_type *var);
-// char	*ft_stepper(t_type *var);
-// int		ft_smallest(int	*arr);
-// void	ft_wall_select(t_type *var);
-// void	ft_wall_colour_set(t_type *var);
-// void	ft_colour_setter(t_type	*var);
+bool	ft_ye_wall_colour(t_type *var);
 #endif
