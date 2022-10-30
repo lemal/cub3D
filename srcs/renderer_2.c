@@ -6,7 +6,7 @@
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 14:43:18 by tapulask          #+#    #+#             */
-/*   Updated: 2022/10/27 20:04:22 by tapulask         ###   ########.fr       */
+/*   Updated: 2022/10/30 12:21:18 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_fill_env_pixel(t_type *var)
 	*(int *)pixel = var->env_color;
 }
 
-void	ft_draw_env_rect(t_type *var, int x, int y, int	size)
+void	ft_draw_env_rect(t_type *var, int x, int y, int size)
 {
 	int	i;
 	int	j;
@@ -41,7 +41,7 @@ void	ft_draw_env_rect(t_type *var, int x, int y, int	size)
 	j = y;
 	while (tot < size)
 	{
-		while (i <  x + var->env_len_rect_x)
+		while (i < x + var->env_len_rect_x)
 		{
 			var->env_addr_x = i;
 			var->env_addr_y = j;
@@ -54,7 +54,7 @@ void	ft_draw_env_rect(t_type *var, int x, int y, int	size)
 	}
 }
 
-void	ft_draw_rect(t_type *var, int x, int y, int	size)
+void	ft_draw_rect(t_type *var, int x, int y, int size)
 {
 	int	i;
 	int	j;
@@ -65,7 +65,7 @@ void	ft_draw_rect(t_type *var, int x, int y, int	size)
 	j = y;
 	while (tot < size)
 	{
-		while (i <  x + var->len_rect_x)
+		while (i < x + var->len_rect_x)
 		{
 			var->addr_x = i;
 			var->addr_y = j;

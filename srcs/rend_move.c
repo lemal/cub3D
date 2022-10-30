@@ -6,7 +6,7 @@
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 14:43:18 by tapulask          #+#    #+#             */
-/*   Updated: 2022/10/27 20:01:33 by tapulask         ###   ########.fr       */
+/*   Updated: 2022/10/30 12:23:46 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_w_press(t_type *var)
 {
 	float	temp1;
 	float	temp2;
-	
+
 	temp1 = var->r_dx;
 	temp2 = var->r_dy;
 	var->r_dx = 0;
@@ -31,7 +31,7 @@ void	ft_a_press(t_type *var)
 {
 	float	temp1;
 	float	temp2;
-	
+
 	temp1 = var->r_dx;
 	temp2 = var->r_dy;
 	var->r_dx = -2;
@@ -46,7 +46,7 @@ void	ft_d_press(t_type *var)
 {
 	float	temp1;
 	float	temp2;
-	
+
 	temp1 = var->r_dx;
 	temp2 = var->r_dy;
 	var->r_dx = 2;
@@ -61,7 +61,7 @@ void	ft_s_press(t_type *var)
 {
 	float	temp1;
 	float	temp2;
-	
+
 	temp1 = var->r_dx;
 	temp2 = var->r_dy;
 	var->r_dx = 0;
@@ -90,5 +90,4 @@ void	ft_mv_control(int keysym, t_type *var)
 		var->p_look_angle += 0.1;
 	else if (keysym == XK_Right)
 		var->p_look_angle -= 0.1;
-	// printf("var->p_y is %d\n", var->p_y);
 }
