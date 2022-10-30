@@ -6,7 +6,7 @@
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 11:41:38 by tapulask          #+#    #+#             */
-/*   Updated: 2022/10/30 16:01:34 by tapulask         ###   ########.fr       */
+/*   Updated: 2022/10/30 20:29:17 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,17 @@ void	ft_draw_minimap(t_type *var)
 	}
 }
 
+void	ft_orient(t_type *var, char direction)
+{
+	float	vals[127];
+
+	vals['W'] = PI;
+	vals['S'] = 3 * PI / 2;
+	vals['E'] = 2 * PI;
+	vals['N'] = PI / 2;
+	var->p_look_angle += vals[(int)direction];
+}
+
 void	ft_player_setup(t_type *var)
 {
 	int	k;
@@ -56,7 +67,10 @@ void	ft_player_setup(t_type *var)
 	{
 		if (var->map[k] == 'N' || var->map[k] == 'S'
 			|| var->map[k] == 'E' || var->map[k] == 'W')
+		{
+			ft_orient(var, var->map[k]);
 			break ;
+		}
 		if (var->map[k] != '\n')
 			var->p_x += 40;
 		else

@@ -6,7 +6,7 @@
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 14:52:03 by tapulask          #+#    #+#             */
-/*   Updated: 2022/10/30 19:19:10 by tapulask         ###   ########.fr       */
+/*   Updated: 2022/10/30 20:34:16 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ int	ft_end(t_type *vars)
 	mlx_destroy_image(vars->mlx_obj, vars->mlx_image);
 	mlx_destroy_image(vars->mlx_env, vars->mlx_env_img);
 	mlx_destroy_display(vars->mlx_obj);
+	mlx_destroy_display(vars->mlx_env);
 	free(vars->mlx_env);
 	free(vars->mlx_obj);
 	write(1, "Bye\n", 5);

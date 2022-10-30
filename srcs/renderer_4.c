@@ -6,7 +6,7 @@
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 11:41:38 by tapulask          #+#    #+#             */
-/*   Updated: 2022/10/30 19:44:57 by tapulask         ###   ########.fr       */
+/*   Updated: 2022/10/30 20:32:35 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,7 @@ char	*ft_north(t_type *var)
 	}
 	var->c_north = *(int *)mlx_get_data_addr(mlx_img, &pos[2], &pos[3], &pos[4]);
 	mlx_destroy_image(mlx, mlx_img);
-	printf("north is --%x--\n", var->c_north);
-	// mlx_destroy_display(mlx);
+	mlx_destroy_display(mlx);
 	free(mlx);
 	return ("ok");
 }
@@ -66,8 +65,7 @@ char	*ft_south(t_type *var)
 	}
 	var->c_south = *(int *)mlx_get_data_addr(mlx_img, &pos[2], &pos[3], &pos[4]);
 	mlx_destroy_image(mlx, mlx_img);
-	printf("south is --%x--\n", var->c_south);
-	// mlx_destroy_display(mlx);
+	mlx_destroy_display(mlx);
 	free(mlx);
 	return ("ok");
 }
@@ -94,8 +92,7 @@ char	*ft_east(t_type *var)
 	}
 	var->c_east = *(int *)mlx_get_data_addr(mlx_img, &pos[2], &pos[3], &pos[4]);
 	mlx_destroy_image(mlx, mlx_img);
-	printf("east is --%x--\n", var->c_east);
-	// mlx_destroy_display(mlx);
+	mlx_destroy_display(mlx);
 	free(mlx);
 	return ("ok");
 }
@@ -122,8 +119,7 @@ char	*ft_west(t_type *var)
 	}
 	var->c_west = *(int *)mlx_get_data_addr(mlx_img, &pos[2], &pos[3], &pos[4]);
 	mlx_destroy_image(mlx, mlx_img);
-	printf("west is --%x--\n", var->c_west);
-	// mlx_destroy_display(mlx);
+	mlx_destroy_display(mlx);
 	free(mlx);
 	return ("ok");
 }
@@ -134,7 +130,7 @@ bool	ft_ye_wall_colour(t_type *var)
 	var->c_north = 0;
 	var->c_west = 0;
 	var->c_south = 0;
-	if (ft_north(var) && ft_south(var) && ft_east(var) && ft_west(var))
+	if (ft_west(var) && ft_south(var) && ft_east(var) && ft_north(var))
 		return (true);
 	return (false);
 }
