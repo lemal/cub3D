@@ -9,14 +9,19 @@ SRCS	=	cub3d.c renderer_1.c renderer_2.c renderer_3.c \
 			renderer_4.c \
 			raycaster_1.c raycaster_2.c rend_move.c \
 
+# PSRCS	=
+# PHDR 	=
 DEPS	=	${patsubst %.c,%.d, ${SRCS}}
 OBJS	=	$(addprefix srcs/, $(SRCS:.c=.o))
 
-INCS	=	-I includes -I libft -Imlx_linux -O3 -I colours
+# PDEPS	=	${patsubst %.c,%.d, ${PSRCS}}
+# POBJS	=	$(addprefix srcs/, $(PSRCS:.c=.o))
 
-LIBFT	=	libft/libft.a
-LFT_HDR	=	libft/libft.h
-LIB_SRCS=	libft/ft_strjoin.c
+INCS	=	-L./includes -L./libft -I includes -I libft -Imlx_linux -O3 -I colours #$(PHDR)
+
+LIBFT	=	./libft/libft.a
+LFT_HDR	=	./libft/libft.h
+LIB_SRCS=	./libft/ft_strncmp.c ./libft/ft_strlen.c
 LFLAGS	=	-L libft -l ft
 LMAKE	=	make -C libft
 
@@ -34,6 +39,7 @@ clean:
 
 $(NAME):	$(OBJS)	$(LIBFT) includes/cub3d.h
 	$(CC) $(CFLAGS) $(OBJS) $(LFLAGS) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $@
+# $(CC) $(CFLAGS) $(OBJS) $(POBJS) $(LFLAGS) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $@
 
 mlx_get:
 	git clone https://github.com/lemal/mlx_store.git mlx_linux; \

@@ -6,7 +6,7 @@
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 13:26:54 by tapulask          #+#    #+#             */
-/*   Updated: 2022/10/30 19:32:03 by tapulask         ###   ########.fr       */
+/*   Updated: 2022/10/31 14:41:39 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ typedef struct s_struct
 	int		bpp;
 	int		line_size;
 	int		endian;
-	int		color;//change before giving into renderer.
+	int		color;
 	int		addr_x;
 	int		addr_y;
 	int		len_rect_x;
