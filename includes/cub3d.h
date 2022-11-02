@@ -6,7 +6,7 @@
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 13:26:54 by tapulask          #+#    #+#             */
-/*   Updated: 2022/10/31 14:41:39 by tapulask         ###   ########.fr       */
+/*   Updated: 2022/11/02 16:03:14 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@
 # include <X11/X.h>
 # include <X11/keysym.h>
 # include <math.h>
+# include "parser.h"
+# include "../libft/libft.h"
+# include <stdio.h>
 # define GREEN 0x00FF00
 # define BLUE 0x0000FF
 # define BLACK 0x000000
@@ -34,7 +37,7 @@
 # define WIDTH 900
 # define HEIGHT 600
 # define PI 3.14159236535
-#include <stdio.h>
+
 typedef struct s_struct
 {
 	char	*map;
@@ -60,7 +63,6 @@ typedef struct s_struct
 	bool	top_right;
 	bool	bot_left;
 	bool	bot_right;
-	//second mlx_objects
 	void	*mlx_env;
 	void	*mlx_env_window;
 	void	*mlx_env_img;
@@ -72,16 +74,23 @@ typedef struct s_struct
 	int		env_addr_y;
 	int		env_color;
 	int		env_len_rect_x;
-	//xpm_colours
 	int		c_north;
 	int		c_south;
 	int		c_east;
 	int		c_west;
-} t_type;
+	char	*path_n;
+	char	*path_s;
+	char	*path_e;
+	char	*path_w;
+	int		ceil_col;
+	int		floor_col;
+	int		width;
+	int		height;
+}	t_type;
 char	*ft_mlx_setup(t_type *var);
 void	ft_game(t_type	*var);
 void	ft_draw_back(t_type *var);
-void	ft_draw_rect(t_type *var, int x, int y, int	size);
+void	ft_draw_rect(t_type *var, int x, int y, int size);
 void	ft_player_setup(t_type *var);
 void	ft_mv_control(int keysym, t_type *var);
 void	ft_draw_minimap(t_type *var);
@@ -96,4 +105,5 @@ bool	ft_incr_y(t_type *var, float y);
 bool	ft_decr_x(t_type *var, float x);
 bool	ft_incr_x(t_type *var, float x);
 bool	ft_ye_wall_colour(t_type *var);
+int		ft_trgb(int t, int r, int g, int b);
 #endif

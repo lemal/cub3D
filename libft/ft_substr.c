@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tapulask <tapulask@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 16:41:54 by tapulask          #+#    #+#             */
-/*   Updated: 2022/03/31 09:16:31 by tapulask         ###   ########.fr       */
+/*   Updated: 2022/11/01 16:44:18 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	size_t	ft_local_check_exist(char const *s, size_t start,
+static	int	ft_local_check_exist(char const *s, size_t start,
 size_t len)
 {
 	size_t	i;
@@ -22,9 +22,9 @@ size_t len)
 		i++;
 	if (start > i)
 		return (-1);
-	else if ((start + len) <= i)
-		return (len);
-	return (i - start);
+	else if ((start + len) <= (size_t)i)
+		return ((int)len);
+	return (i - (int)start);
 }
 
 static	char	*ft_local_fill(char const *s, char *ptr_to_first,
@@ -46,13 +46,13 @@ static	char	*ft_local_fill(char const *s, char *ptr_to_first,
 char	*ft_substr(char const *s, unsigned int start,
 			size_t len)
 {
-	size_t	i;
+	int		i;
 	char	*ptr_to_first;
 
 	if (s == NULL)
 		return (NULL);
 	i = ft_local_check_exist(s, start, len);
-	if (i == (size_t)(-1))
+	if (i == -1)
 	{
 		ptr_to_first = (char *)malloc(sizeof(char));
 		if (ptr_to_first == NULL)

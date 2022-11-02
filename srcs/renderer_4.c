@@ -6,7 +6,7 @@
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 11:41:38 by tapulask          #+#    #+#             */
-/*   Updated: 2022/10/30 20:32:35 by tapulask         ###   ########.fr       */
+/*   Updated: 2022/11/02 16:05:30 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 
 char	*ft_north(t_type *var)
 {
-	char	*relative_path = "./srcs/colours/north.xpm";
 	void	*mlx;
 	void	*mlx_img;
 	int		pos[5];
@@ -28,24 +27,23 @@ char	*ft_north(t_type *var)
 		write(1, "Error\nMLX error\n", 17);
 		return (NULL);
 	}
-	mlx_img = mlx_xpm_file_to_image(mlx, relative_path,
+	mlx_img = mlx_xpm_file_to_image(mlx, var->path_n,
 			&pos[0], &pos[1]);
 	if (!mlx_img)
 	{
 		write(1, "Error\nMLX error\n", 17);
 		return (NULL);
 	}
-	var->c_north = *(int *)mlx_get_data_addr(mlx_img, &pos[2], &pos[3], &pos[4]);
+	var->c_north = *(int *)mlx_get_data_addr(mlx_img,
+			&pos[2], &pos[3], &pos[4]);
 	mlx_destroy_image(mlx, mlx_img);
 	mlx_destroy_display(mlx);
 	free(mlx);
 	return ("ok");
 }
 
-
 char	*ft_south(t_type *var)
 {
-	char	*relative_path = "./srcs/colours/south.xpm";
 	void	*mlx;
 	void	*mlx_img;
 	int		pos[5];
@@ -56,14 +54,15 @@ char	*ft_south(t_type *var)
 		write(1, "Error\nMLX error\n", 17);
 		return (NULL);
 	}
-	mlx_img = mlx_xpm_file_to_image(mlx, relative_path,
+	mlx_img = mlx_xpm_file_to_image(mlx, var->path_s,
 			&pos[0], &pos[1]);
 	if (!mlx_img)
 	{
 		write(1, "Error\nMLX error\n", 17);
 		return (NULL);
 	}
-	var->c_south = *(int *)mlx_get_data_addr(mlx_img, &pos[2], &pos[3], &pos[4]);
+	var->c_south = *(int *)mlx_get_data_addr(mlx_img,
+			&pos[2], &pos[3], &pos[4]);
 	mlx_destroy_image(mlx, mlx_img);
 	mlx_destroy_display(mlx);
 	free(mlx);
@@ -72,7 +71,6 @@ char	*ft_south(t_type *var)
 
 char	*ft_east(t_type *var)
 {
-	char	*relative_path = "./srcs/colours/east.xpm";
 	void	*mlx;
 	void	*mlx_img;
 	int		pos[5];
@@ -83,7 +81,7 @@ char	*ft_east(t_type *var)
 		write(1, "Error\nMLX error\n", 17);
 		return (NULL);
 	}
-	mlx_img = mlx_xpm_file_to_image(mlx, relative_path,
+	mlx_img = mlx_xpm_file_to_image(mlx, var->path_e,
 			&pos[0], &pos[1]);
 	if (!mlx_img)
 	{
@@ -99,7 +97,6 @@ char	*ft_east(t_type *var)
 
 char	*ft_west(t_type *var)
 {
-	char	*relative_path = "./srcs/colours/west.xpm";
 	void	*mlx;
 	void	*mlx_img;
 	int		pos[5];
@@ -110,7 +107,7 @@ char	*ft_west(t_type *var)
 		write(1, "Error\nMLX error\n", 17);
 		return (NULL);
 	}
-	mlx_img = mlx_xpm_file_to_image(mlx, relative_path,
+	mlx_img = mlx_xpm_file_to_image(mlx, var->path_w,
 			&pos[0], &pos[1]);
 	if (!mlx_img)
 	{

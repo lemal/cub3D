@@ -6,7 +6,7 @@
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 11:41:38 by tapulask          #+#    #+#             */
-/*   Updated: 2022/10/30 20:29:17 by tapulask         ###   ########.fr       */
+/*   Updated: 2022/11/02 15:42:57 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@ static void	ft_kij_init(int *k, int *i, int *j)
 	*k = 0;
 	*i = 0;
 	*j = 0;
+}
+
+int	ft_trgb(int t, int r, int g, int b)
+{
+	return (t << 24 | r << 16 | g << 8 | b);
 }
 
 void	ft_draw_minimap(t_type *var)
